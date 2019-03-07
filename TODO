@@ -1,0 +1,15 @@
+1. Create a micro container in tier3 that does the following:
+  a. Log into the briefcam server.
+  b. Deletes cases that are older than 2 days by performing a series of clicks on the websiste.
+2. Try using rabbit message queue instead of confluent kakfka.
+3. Move the "tier2 - orchestration service for opening rtsp media streams" into docker service / docker swarm. 
+   a. Bring in the messaging queue between the fauxon/couch db and the tier1 producer which reads the camera document from the 
+   database and enqueues them to the rabbit message queue.
+   b. A swarm of docker service microservice containers dequeue the message from the queue and connects to the RTSP camera 
+   mentioned in the document.
+4. Run pylint on the code and fix all the warnings.
+5. Make sure that all the unit test cases run successfully when the Jenkins check in trigger hook gets invoked.
+6. Create a Dockerfile.unittest for every docker image. Change the ut logic to pick only the Dockerfile.unittest to test the docker image.
+7. Migrate to Kubernetes.
+8. Start learning on how to plug in Tensor flow logic into the data_parser module.
+
